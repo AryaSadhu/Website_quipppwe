@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+
+
+        .container {
+
+
+            /* margin: 0 auto;
+            justify-content: center;
+            display: flex; */
+            width: 100%;
+        }
+
+        .content-slide {
+
+            position: relative;
+            margin: auto;
+
+        }
+
+        .imgslide {
+            display: none;
+            width: 100%;
+        }
+
+        .imgslide img {
+            height: 100vh;
+        }
+
+        .img {
+            vertical-align: middle;
+            width: 100%;
+            height: 400px;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            color: rgb(255, 254, 224);
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+
+
+        .pre:hover,
+        .next:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: rgb(0, 0, 0);
+        }
+
+        .pre:hover,
+        .prev:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: rgb(0, 0, 0);
+        }
+
+
+
+        .content-slide .numberslide {
+            color: #ffffff;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 800px) {
+            .content-slide {
+                padding: 8px 50px 12px 50px;
+            }
+
+            .next {
+                right: 50px;
+                border-radius: 3px 0 0 3px;
+            }
+        }
+
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {
+                opacity: .4;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4;
+            }
+
+            to {
+
+                opacity: 1;
+            }
+        }
+
+        .container .page {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+
+
+
+
+        .gambar {
+            cursor: pointer;
+            height: 50px;
+            padding-left: 15px;
+
+
+        }
+
+        .sala {
+            height: 150%;
+            width: 200%;
+            text-align: center;
+            padding-right: 140px;
+
+        }
+
+        .siapa {
+            text-align: justify;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            line-height: 1.5;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* .container {
+            max-width: 1170px;
+            background-color: red;
+            margin: auto;
+        } */
+
+        .ul {
+            list-style: none;
+        }
+
+        .footer {
+            background-color: #24262b;
+            padding: 70px 0;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .footer-col {
+            width: 25%;
+            padding: 0 15px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            color: #ffffff;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+
+        }
+
+        .footer-col h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: #e91e63;
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+        }
+
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 16px;
+            text-transform: capitalize;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            color: #bbbbbb;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            padding-left: 8px;
+        }
+
+        .footer-col .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+        }
+
+        .footer-col .social-links a:hover {
+            color: #24262b;
+            background-color: #ffffff;
+        }
+
+        .container-slider {
+
+            width: 100%;
+        }
+
+        .price {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 25px;
+        }
+
+        .kontainer {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 8%;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 30px;
+        }
+
+        .gallery img {
+            width: 100%;
+        }
+
+        @media(max-width: 767px) {
+            .footer-col {
+                width: 50%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media(max-width: 574px) {
+            .footer-col {
+                width: 100%;
+
+            }
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Complete Responsive Personal Portfolio Website - Html, Css & Javascript</title>
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="lightbox2-dev/dist/css/lightbox.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="scrollToTop-btn flex-center">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <div class="theme-btn flex-center">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </div>
+    <header>
+        <div class="nav-bar">
+            <img src="img/IMG-20220824-WA0046-removebg-preview.png" class="gambar">
+            <div class="navigation">
+                <div class="nav-items">
+                    <div class="nav-close-btn"></div>
+                    <a class="active" href="#home">Home</a>
+                    <a href="#about">About Us</a>
+                    <a href="#skills">Galery</a>
+                    <a href="#services">Product Services</a>
+
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="nav-menu-btn"></div>
+        </div>
+    </header>
+    <section class="home flex-center" id="home">
+        <!-- <div class="home-container">
+            <div class="media-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="info">
+                <h2>Hi, I am Sadhu</h2>
+                <h3>Front-end Developer</h3>
+                <p>I Create Stunning websites for your business, Highly experienced in web design and development.</p>
+                <a href="" class="btn">Contact Me <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            <div class="home-img">
+                <img src="img/1.png" alt="">
+            </div>
+        </div> -->
+        <div class="container-slider">
+            <div class="content-slide">
+                <div class="imgslide fade">
+                    <div class="numberslide">1 / 2</div>
+                    <img src="img/1.png" alt="" style="width:100%;">
+
+                </div>
+                <div class="imgslide fade">
+                    <div class="numberslide">2 / 2</div>
+                    <img src="img/7.png" alt="" style="width:100%;">
+
+                </div>
+                <a class="prev" onclick="nextslide(-1)">&#10094;</a>
+                <a class="next" onclick="nextslide(1)">&#10095;</a>
+            </div>
+            <div class="page">
+                <span class="dot" onclick="dotslide(1)"></span>
+                <span class="dot" onclick="dotslide(2)"></span>
+            </div>
+        </div>
+        <a href="#about" class="scroll-down">Scroll Down <i class="fas fa-arrow-down"></i></a>
+    </section>
+
+
+    <section class="about section" id="about">
+        <div class="container flex-center">
+            <h1 class="section-title-01">About Us</h1>
+            <h2 class="section-title-02">About Us</h2>
+            <div class="content flex-center">
+                <div class="about-img">
+                    <img src="img/1.png" alt="">
+                </div>
+                <div class="about-info">
+                    <div class="description">
+
+                        <p>'"SALA3" adalah perusahaan yang bergerak di bidang produksi dengan produk utamanya yaitu,
+                            parfuem.
+                            perusahaan kami menawarkan parfuem gaya baru yang elegant namun ramah kantong, dengan
+                            koleksi parfuem dengan nuansa hutan hijau. Salah satunya "forest" dimana menawarkan kesan
+                            "woody" yang menjadikan pinus sebagai unsur utama dalam parfuem, menimbulkan kesegaran aroma
+                            hutan yang basah dan segar.</p>
+                    </div>
+
+                    <a href="" class="btn">Read More </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="skills section" id="skills">
+        <div class="container flex-center">
+            <h1 class="section-title-01">Galery</h1>
+            <h2 class="section-title-02">Galery</h2>
+
+            <div class="kontainer">
+                <div class="gallery">
+
+                    <a href="img/sala.png" data-lightbox="models" data-title="Caption1">
+                        <img src="img/sala.png">
+                    </a>
+                    <a href="img/parfum.jpg.png" data-lightbox="models" data-title="Caption2">
+                        <img src="img/parfum.jpg.png">
+                    </a>
+                    <a href="img/sala3.png" data-lightbox="models" data-title="Caption3">
+                        <img src="img/sala3.png">
+                    </a>
+                    <a href="img/gambar.png" data-lightbox="models" data-title="Caption4">
+                        <img src="img/gambar.png">
+                    </a>
+                    <a href="img/romance.png" data-lightbox="models" data-title="Caption5">
+                        <img src="img/romance.png">
+                    </a>
+
+
+
+                </div>
+            </div>
+
+            <!-- <div class="content">
+                <div class="skills-description">
+                    <h3>Education & Skills</h3>
+                    <p>For more than 5 years our experts have been accomplishing enough with modern Web Development, new
+                        generation web and app programming language.</p>
+                </div>
+                <div class="skills-info education-all">
+                    <div class="education">
+                        <h4><label>Education</label></h4>
+                        <ul class="edu-list">
+                            <li class="item">
+                                <span class="year">2020-2021</span>
+                                <p><span>Ph.D in Horriblensess</span> - Harvard University, Cambridge, MA</p>
+                            </li>
+                            <li class="item">
+                                <span class="year">2018-2019</span>
+                                <p><span>Computer Science</span> - Imperialize Technical Institute</p>
+                            </li>
+                            <li class="item">
+                                <span class="year">2016-2018</span>
+                                <p><span>Graphic Designer</span> - Web Graphy, Los Angeles, CA</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="education">
+                        <h4><label>Skills</label></h4>
+                        <ul class="bars">
+                            <li class="bar">
+                                <div class="info">
+                                    <span>HTML</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="line html"></div>
+                            </li>
+                            <li class="bar">
+                                <div class="info">
+                                    <span>CSS</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="line css"></div>
+                            </li>
+                            <li class="bar">
+                                <div class="info">
+                                    <span>Javascript</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="line javascript"></div>
+                            </li>
+                            <li class="bar">
+                                <div class="info">
+                                    <span>Jquery</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="line jquery"></div>
+                            </li>
+                            <li class="bar">
+                                <div class="info">
+                                    <span>PHP</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="line php"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="education">
+                        <h4><label>Awards</label></h4>
+                        <ul class="edu-list">
+                            <li class="item">
+                                <span class="year">2021</span>
+                                <p><span>Best Developer</span> - University Of Melbourne, NA</p>
+                            </li>
+                            <li class="item">
+                                <span class="year">2020</span>
+                                <p><span>Best Writer</span> - Online Typodev Soluation Ltd.</p>
+                            </li>
+                            <li class="item">
+                                <span class="year">2019</span>
+                                <p><span>Best Freelancer</span> - Fiver & Upwork Level 2 & Top Rated</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="skills-description">
+                    <h3>Work & Experience</h3>
+
+                </div>
+                <div class="skills-info ">
+                    <div class="experience-card">
+                        <div class="upper">
+                            <h3>Sr. Graphic</h3>
+                            <h5>Part Time | Office</h5>
+                            <span>2020 - 2021</span>
+                        </div>
+                        <div class="hr"></div>
+                        <h4><label>Avada Theme.</label></h4>
+                        <p>I design and develop services for customers of all sizes, specializing in creating stylish,
+                            modern websites</p>
+                    </div>
+                    <div class="experience-card">
+                        <div class="upper">
+                            <h3>Cr. Web Developer</h3>
+                            <h5>Full Time | InHouse</h5>
+                            <span>2019 - 2020</span>
+                        </div>
+                        <div class="hr"></div>
+                        <h4><label>ib-themes ltd.</label></h4>
+                        <p>I design and develop services for customers of all sizes, specializing in creating stylish,
+                            modern websites</p>
+                    </div>
+                    <div class="experience-card">
+                        <div class="upper">
+                            <h3>Jr. Web Developer</h3>
+                            <h5>Full Time | Remote</h5>
+                            <span>2018 - 2019</span>
+                        </div>
+                        <div class="hr"></div>
+                        <h4><label>Creative Gigs.</label></h4>
+                        <p>I design and develop services for customers of all sizes, specializing in creating stylish,
+                            modern websites</p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+    <section class="services section" id="services">
+        <div class="container flex-center">
+            <h1 class="section-title-01">Services</h1>
+            <h2 class="section-title-02">Services</h2>
+            <div class="content">
+                <div class="services-description">
+                    <h3>What I Product Services</h3>
+                </div>
+                <ul class="service-list">
+                    <li class="service-container">
+                        <div class="service-card">
+                            <img src="img/sala.png" class="sala">
+                            <h3>BEST SELLER!!! “FOREST” </h3>
+                            <div class="learn-more-btn">Learn More <i class="fas fa-long-arrow-alt-right"></i></div>
+                            <div class="price">$15.99 <s>20.99</s></div>
+                            <a href="#" class="btn">Add To Cart</a>
+                        </div>
+                        <div class="service-modal flex-center">
+
+                            <div class="service-modal-body">
+                                <i class="fas fa-times modal-close-btn"></i>
+                                <h3>BEST SELLER!!! “FOREST” </h3>
+                                <h4>What is BEST SELLER!!! “FOREST”? </h4>
+                                <p class="siapa">SIAPA YANG GAK JATUH CINTA SAMA DIA?
+                                    SALA3 HADIR MENEMANI PRODUKTIFITAS KAMU, DENGAN EXTRACT PINUS YANG “WOODY”
+                                    BERNUASA
+                                    HUTAN HIJAU MENANGKAN, BASAH DAN SEGAR SERTA DENGAN KEMASAN YANG ELEGANT, WANGI
+                                    TAHAN SAMPAI 10 JAM, PRAKTIS DI BAWA BERPERGIAN DAN PASTINYA DENGAN HARGA
+                                    TERJANGKAU. SEMUA TERBUNGKUS DALAM 1 PARFUM INI.
+                                    45K - 75ML
+                                    INCLUDE BOX
+                                    LET'S CEKOUT ON BIO!! HAPPY SHOPPING 😊
+                                </p>
+                                <h4>What I Provide </h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Establish the right UX processes</li>
+                                    <li><i class="fas fa-check-circle"></i> Create exceptional user experiences</li>
+                                    <li><i class="fas fa-check-circle"></i> Discover new business opportunities</li>
+                                    <li><i class="fas fa-check-circle"></i> Save resources</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li class="service-container">
+                        <div class="service-card">
+                            <img src="img/parfum.jpg.png" class="sala">
+                            <h3 class="card-title">“CLASSIC”</h3>
+                            <div class="learn-more-btn">Learn More <i class="fas fa-long-arrow-alt-right"></i></div>
+                            <div class="price">$16.99 <s>21.96</s></div>
+                            <a href="#" class="btn">Add To Cart</a>
+                        </div>
+                        <div class="service-modal flex-center">
+                            <div class="service-modal-body">
+                                <i class="fas fa-times modal-close-btn"></i>
+                                <h3>“CLASSIC”</h3>
+                                <h4>What is “CLASSIC”?</h4>
+                                <p style="text-align: justify;">MENYAMBUT HARI DENGAN KEBAHAGIAAN ADALAH SUATU HAL YANG
+                                    PASTINYA DI DAMBAKAN, APALAGI
+                                    DITEMANI DENGAN SI MUNGIL INI...
+                                    AROMA “FLORAL” YANG FEMINIM DAN ROMATIS SANGAT MELEKAT PADA SETIAP SEMPROT. PARFUM
+                                    INI ADALAH SOLUSI TERBAIK, UNTUK MENINGKATKAN KEPERCAYAAN DIRIMU DALAM BERAKTIVITAS.
+                                    35K - 45ML
+                                    INCLUDE BOX
+                                    LET'S CEKOUT ON BIO!! HAPPY SHOPPING 😊
+                                </p>
+                                <h4>What I provide </h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Logo Design</li>
+                                    <li><i class="fas fa-check-circle"></i> Banner Design</li>
+                                    <li><i class="fas fa-check-circle"></i> Visual Identity Packages</li>
+                                    <li><i class="fas fa-check-circle"></i> Business Cards & Business Systems</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="service-container">
+                        <div class="service-card">
+                            <img src="img/sala3.png" class="sala">
+                            <h3>BESTT SELLER !!!! “MODE”</h3>
+                            <div class="learn-more-btn">Learn More <i class="fas fa-long-arrow-alt-right"></i></div>
+                            <div class="price">$14.99 <s>23.94</s></div>
+                            <a href="#" class="btn">Add To Cart</a>
+                        </div>
+                        <div class="service-modal flex-center">
+                            <div class="service-modal-body">
+                                <i class="fas fa-times modal-close-btn"></i>
+                                <h3 style="text-align: justify;">BESTT SELLER !!!! “MODE”</h3>
+                                <h4>What is BESTT SELLER !!!! “MODE”?</h4>
+                                <p class="siapa">MASIH BINGGUNG CARI PARFUM YANG WANGINYA KALEM DAN TAHAN LAMA DENGAN
+                                    HARGA TERJANGKAU?
+                                    PARFUM INI ADALAH SOLUSI TERBAIK, DENGAN AROMA MUSK DAN SUMTUOUS FLOWERS YANG
+                                    ELEGANT DAN ANGGUN MAMPU MENINGKATKAN KEPERCAYAAN DIRIMU DALAM BERAKTIVITAS DAN
+                                    COCOK DI PADUPADANKAN DENGAN OUTFIT KAMU YANG KECE.
+                                    DENGAN KESAN “GREEN” PARFUM INI COCOK BAGI KAMU YANG SUKA WANGI SOFT DAN TIDAK
+                                    MENYENGAT.
+                                    70K - 100ML
+                                    INCLUDE BOX
+                                    LET'S CEKOUT ON BIO!! HAPPY SHOPPING 😊
+                                </p>
+                                <h4>What I Provide</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Web application development</li>
+                                    <li><i class="fas fa-check-circle"></i> Testing</li>
+                                    <li><i class="fas fa-check-circle"></i> Maintenance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="service-container">
+                        <div class="service-card">
+                            <img src="img/gambar.png" class="sala">
+                            <h3 class="card-title">“FLOWER”</h3>
+                            <div class="learn-more-btn">Learn More <i class="fas fa-long-arrow-alt-right"></i></div>
+                            <div class="price">$18.99 <s>22.86</s></div>
+                            <a href="#" class="btn">Add To Cart</a>
+                        </div>
+                        <div class="service-modal flex-center">
+                            <div class="service-modal-body">
+                                <i class="fas fa-times modal-close-btn"></i>
+                                <h3>“FLOWER”</h3>
+                                <h4>What is “FLOWER”?</h4>
+                                <p class="siapa">HAI..HAI..HAI
+                                    SOLA3 KEMBALI HADIR DENGAN PARFUM BARU YANG GA KALAH WANGI DAN KECEH NIHH!!!
+                                    DENGAN DESAIN MINIMALIS NAMUN ELEGANT DAN PASTINYA RAMAH KANTONG, KAMU BISA
+                                    MENDAPATKAN SI MUNGIL INI.
+                                    PARFUM KALI INI KEMBALI MENAWARKAN AROMA “FLORAL” KHAS BUNGA-BUNGAAN YANG MANIS,
+                                    SOFT DAN FEMINIM. LAVENDER YANG KUAT DAN MENANGKAN MENJADIKAN PARFUM INI COCOK UNTUK
+                                    KAMU YANG SUKA DENGAN JENIS AROMA TERAPI NAMUN TIDAK MENYENGAT.
+                                    35K - 45ML
+                                    INCLUDE BOX
+                                    LET'S CEKOUT ON BIO!! HAPPY SHOPPING 😊
+                                </p>
+                                <h4>What I provide</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Web content writing</li>
+                                    <li><i class="fas fa-check-circle"></i> Blog writing for websites</li>
+                                    <li><i class="fas fa-check-circle"></i> Social media content</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="service-container">
+                        <div class="service-card">
+                            <img src="img/romance.png" class="sala">
+                            <h3 class="card-title">“ROMANCE”</h3>
+                            <div class="learn-more-btn">Learn More <i class="fas fa-long-arrow-alt-right"></i></div>
+                            <div class="price">$19.99 <s>24.92</s></div>
+                            <a href="#" class="btn">Add To Cart</a>
+                        </div>
+                        <div class="service-modal flex-center">
+                            <div class="service-modal-body">
+                                <i class="fas fa-times modal-close-btn"></i>
+                                <h3>“ROMANCE”</h3>
+                                <h4>What is “ROMANCE”?</h4>
+                                <p class="siapa">MAU TETEP FRESH DAN BERAROMA SEKSI?
+                                    PARFUM INI SOLUSINYA, DENGAN PADUAN MUSK DAN ORIENTAL RESINS
+                                    YANG MEMBERIKAN SENSASI SEKSI DAN SENSUAL. DENGAN AROMA “ORIENTAL” YANG ELEGAN DAN
+                                    MANIS MAMPU MENINGKATKAN KEPERCAYAAN DIRI DAN MEMPERKUAT KARAKTER KAMU YG FEMINIM,
+                                    COOL, DAN DEWASA.
+                                    50K - 75ML
+                                    INCLUDE BOX
+                                    LET'S CEKOUT ON BIO!! HAPPY SHOPPING 😊
+
+                                </p>
+                                <h4>What I provide</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Web content writing</li>
+                                    <li><i class="fas fa-check-circle"></i> Blog writing for websites</li>
+                                    <li><i class="fas fa-check-circle"></i> Social media content</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <section class="portfolio section" id="portfolio">
+        <div class="container flex-center">
+            <h1 class="section-title-01">Portfolio</h1>
+            <h2 class="section-title-02">Portfolio</h2>
+
+            <div class="content">
+                <div class="portfolio-list">
+                    <div class="img-card-container">
+                        <div class="img-card">
+                            <div class="overlay"></div>
+                            <div class="info">
+                                <h3>Web Design</h3>
+                                <span>Youtube</span>
+                            </div>
+                            <img src="img/keren-hd-texture-wallpapers-wood-background-kayu-keren-hd-wallpapers-for-free-download-doodle-background-kayu-keren-hd-wallpapers-wallpaper.jpg"
+                                alt="">
+                        </div>
+                        <div class="portfolio-model flex-center">
+                            <div class="portfolio-model-body">
+                                <i class="fas fa-times portfolio-close-btn"></i>
+                                <h3>Web Design</h3>
+                                <img src="img/Davin.jpg" alt="">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-card-container">
+                        <div class="img-card">
+                            <div class="overlay"></div>
+                            <div class="info">
+                                <h3>UI/UX Design</h3>
+                                <span>Youtube</span>
+                            </div>
+                            <img src="img/banner2.jpg" alt="">
+                        </div>
+                        <div class="portfolio-model flex-center">
+                            <div class="portfolio-model-body">
+                                <i class="fas fa-times portfolio-close-btn"></i>
+                                <h3>UI/UX Design</h3>
+                                <img src="img/banner.png" alt="">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-card-container">
+                        <div class="img-card">
+                            <div class="overlay"></div>
+                            <div class="info">
+                                <h3>Branding & Design</h3>
+                                <span>Youtube</span>
+                            </div>
+                            <img src="img/cafeteria.png" alt="">
+                        </div>
+                        <div class="portfolio-model flex-center">
+                            <div class="portfolio-model-body">
+                                <i class="fas fa-times portfolio-close-btn"></i>
+                                <h3>Branding & Design</h3>
+                                <img src="img/certificate.jpg" alt="">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-card-container">
+                        <div class="img-card">
+                            <div class="overlay"></div>
+                            <div class="info">
+                                <h3>Web Development</h3>
+                                <span>Youtube</span>
+                            </div>
+                            <img src="img/about.jpg" alt="">
+                        </div>
+                        <div class="portfolio-model flex-center">
+                            <div class="portfolio-model-body">
+                                <i class="fas fa-times portfolio-close-btn"></i>
+                                <h3>Web Development</h3>
+                                <img src="img/library.png" alt="">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-card-container">
+                        <div class="img-card">
+                            <div class="overlay"></div>
+                            <div class="info">
+                                <h3>Content Writing</h3>
+                                <span>Youtube</span>
+                            </div>
+                            <img src="img/user1.jpg" alt="">
+                        </div>
+                        <div class="portfolio-model flex-center">
+                            <div class="portfolio-model-body">
+                                <i class="fas fa-times portfolio-close-btn"></i>
+                                <h3>Content Writing</h3>
+                                <img src="img/user2.jpg" alt="">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img-card-container">
+                        <div class="img-card">
+                            <div class="overlay"></div>
+                            <div class="info">
+                                <h3>Interface Design</h3>
+                                <span>Youtube</span>
+                            </div>
+                            <img src="img/logo.png" alt="">
+                        </div>
+                        <div class="portfolio-model flex-center">
+                            <div class="portfolio-model-body">
+                                <i class="fas fa-times portfolio-close-btn"></i>
+                                <h3>Interface Design</h3>
+                                <img src="img/london.png" alt="">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="get-in-touch sub-section">
+            <div class="container">
+                <div class="content flex-center">
+                    <div class="contact-card flex-center">
+                        <div class="title">
+                            <h4>Let's Talk</h4>
+                            <h3>About Your</h3>
+                            <h2>Next Project</h2>
+                        </div>
+                        <div class="contact-btn">
+                            <a href="" class="btn">Get In Touch <i class="fas fa-paper-plane"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="our-client sub-section">
+            <div class="container flex-center">
+                <h1 class="section-title-01">Our Clients</h1>
+                <h2 class="section-title-02">Our Clients</h2>
+                <div class="content">
+                    <div class="swiper client-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide flex-center">
+                                <div class="client-img">
+                                    <img src="img/Davin.jpg" alt="">
+                                </div>
+                                <div class="client-details">
+                                    <p>Hi, I'm Gede Najwa Davinarditha and I am designer & Developer who dream making
+                                        the world better place by products. I am also very active for international
+                                        Clients.</p>
+                                    <h3>Gede Najwa Davinarditha</h3>
+                                    <span>Marketing Manager</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide flex-center">
+                                <div class="client-img">
+                                    <img src="img/user1.jpg" alt="">
+                                </div>
+                                <div class="client-details">
+                                    <p>This is outstanding work. Everything I needed to do has been done by the makers.
+                                        I really like this template and more importantly my clients are blown away by
+                                        it.</p>
+                                    <h3>Cillian Metcalfe</h3>
+                                    <span>Graphic Designer</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide flex-center">
+                                <div class="client-img">
+                                    <img src="img/user2.jpg" alt="">
+                                </div>
+                                <div class="client-details">
+                                    <p>These people really know what they are doing! Great customer support availability
+                                        and supperb kindness. I am very happy that I've purchased this liscense!!!</p>
+                                    <h3>Kianna Baird</h3>
+                                    <span>App Developer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="swiper-button-prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="contact section" id="contact">
+        <div class="container flex-center">
+            <h1 class="section-title-01">Contact Us</h1>
+            <h2 class="section-title-02">Contact Us</h2>
+            <div class="content">
+                <div class="contact-left">
+                    <h2>Let's discuss your project</h2>
+                    <ul class="contact-list">
+                        <li>
+                            <h3 class="item-title"><i class="fas fa-phone"></i> Phone</h3>
+                            <span>087846042835</span>
+                        </li>
+                        <li>
+                            <h3 class="item-title"><i class="fas fa-envelope"></i> Email Address</h3>
+                            <span><a href="madearyasadhu@gmail.com">madearyasadhu@gmail.com</a></span>
+                        </li>
+                        <li>
+                            <h3 class="item-title"><i class="fas fa-map-marker-alt"></i> Official Address</h3>
+                            <span>Jl. Tibung Sari No.1X, Dalung, Kec. Kuta Utara, Kabupaten Badung, Bali 80361</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-right">
+                    <p>I'm always open to discussing product<br><span>design work or partnerships.</span></p>
+                    <form action="" class="contact-form">
+                        <div class="first-row">
+                            <input type="text" placeholder="Name">
+                        </div>
+                        <div class="second-row">
+                            <input type="email" placeholder="Email">
+                            <input type="text" placeholder="Subject">
+                        </div>
+                        <div class="third-row">
+                            <textarea name="message" id="" rows="7" placeholder="Message"></textarea>
+                        </div>
+                        <button class="btn" type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        <div class="container " style="padding: 20px;">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">affiliate program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">shipping</a></li>
+                        <li><a href="#">returns</a></li>
+                        <li><a href="#">order status</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li><a href="#">watch</a></li>
+                        <li><a href="#">bag</a></li>
+                        <li><a href="#">shoes</a></li>
+                        <li><a href="#">dress</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script src="lightbox2-dev/dist/js/lightbox-plus-jquery.js"></script>
+
+    <script>
+        var slideIndex = 1;
+        showSlide(slideIndex);
+        function nextslide(n) {
+            showSlide(slideIndex += n);
+        }
+
+        function showSlide(n) {
+            var i;
+            var slides = document.getElementsByClassName("imgslide");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
